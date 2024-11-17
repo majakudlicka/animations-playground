@@ -1,0 +1,105 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.grass,
+.sky,
+.road {
+  position: relative;
+}
+
+.sky {
+  height: 40%;
+  background: skyblue;
+}
+
+.grass {
+  height: 30%;
+  background: seagreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.road {
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines {
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+.circle {
+  width: 100px;
+  padding: 50px 0;
+  line-height: 0;
+  text-align: center;
+  background: pink;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 1s ease-in, background 2s ease-in;
+}
+
+/* Example of a simple animation using transform */
+.circle:hover {
+  background: plum;
+  transform: rotate(360deg);
+}
+
+/* More advanced animations using keyframes */
+.mario {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  animation: drive 2s ease-in-out infinite both;
+}
+
+.luigi {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  animation: drive 3s linear infinite reverse both;
+}
+
+.cloud {
+  position: absolute;
+
+  &:nth-of-type(1) {
+    width: 200px;
+    opacity: 0.5;
+    left: 0;
+    top: 100px;
+    animation: wind 30s linear infinite reverse;
+  }
+
+  &:nth-of-type(2) {
+    animation: wind 20s linear infinite reverse;
+  }
+}
+
+@keyframes drive {
+    0% {transform: translateX(-150px);}
+    100% {transform: translateX(100vw);}
+}
+
+@keyframes wind {
+  0% {left: -300px;}
+  100% {left: 100vw;}
+}
+
+
